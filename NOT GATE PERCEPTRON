@@ -1,0 +1,16 @@
+import numpy as np
+
+def unit_step(v):
+    return 1 if v >= 0 else 0
+
+def perceptron_model(x, w, b):
+    v = np.dot(w, x) + b
+    return unit_step(v)
+
+def NOT_logic_gate(x):
+    w = -1    
+    b = 0.5   
+    return perceptron_model(x, w, b)
+
+print(f"NOT(0) = {NOT_logic_gate(0)}") # Expected: 1
+print(f"NOT(1) = {NOT_logic_gate(1)}") # Expected: 0
