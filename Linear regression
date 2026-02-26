@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+X_train = [[1], [2], [3], [4], [5]]
+y_train = [30000, 35000, 48000, 52000, 65000]
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+plt.scatter(X_train, y_train, color='red', label='Actual Data')
+
+plt.plot(X_train, model.predict(X_train), color='blue', label='Regression Line')
+
+plt.title('Salary vs Experience')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.legend()
+plt.show()
