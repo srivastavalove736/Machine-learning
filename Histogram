@@ -1,0 +1,9 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.random.normal(loc=50, scale=10, size=1000)
+plt.hist(data, bins=30, color='skyblue', edgecolor='black')
+plt.title('Feature Distribution (e.g., Age)')
+plt.xlabel('Value Range')
+plt.ylabel('Frequency (Count)')
+plt.show()
