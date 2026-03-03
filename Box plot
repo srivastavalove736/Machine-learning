@@ -1,0 +1,9 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.concatenate([np.random.normal(50, 5, 100), [80, 85, 10, 5]])
+plt.boxplot(data, patch_artist=True, labels=['Feature A'])
+
+plt.title('Detection of Outliers in Feature A')
+plt.ylabel('Values')
+plt.show()
