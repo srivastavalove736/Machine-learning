@@ -1,0 +1,15 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = sns.load_dataset('iris')
+corr_matrix = df.corr(numeric_only=True) #
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr_matrix, 
+            annot=True,       # Show values
+            fmt=".2f",        # 2 decimal places
+            cmap='coolwarm',  # Color palette
+            vmin=-1, vmax=1,  # Scale range
+            center=0)         # Center at 0
+plt.show()
