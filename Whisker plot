@@ -1,0 +1,7 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+df = sns.load_dataset('iris')
+
+sns.boxplot(y=df["sepal_length"])
+plt.title("Distribution of Sepal Length")
+plt.show()
