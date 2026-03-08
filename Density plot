@@ -1,0 +1,9 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = sns.load_dataset("iris")
+sns.kdeplot(data=df, x="sepal_width", fill=True, color="blue")
+sns.kdeplot(data=df, x="sepal_width", hue="species", fill=True, alpha=0.5)
+
+plt.title("Distribution of Sepal Width by Species")
+plt.show()
