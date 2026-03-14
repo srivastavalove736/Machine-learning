@@ -1,0 +1,38 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# 1. Create a synthetic dataset
+np.random.seed(42)
+data_size = 100
+experience = np.random.uniform(1, 20, data_size)
+# Salary is roughly experience * 5000 + base, with some noise
+salary = (experience * 5000) + np.random.normal(0, 8000, data_size) + 40000
+roles = np.random.choice(['Engineer', 'Data Scientist', 'Manager'], data_size)
+
+df = pd.DataFrame({'Experience': experience, 'Salary': salary, 'Role': roles})
+
+# 2. Set the visual style
+sns.set_theme(style="whitegrid")
+
+# 3. Create the scatter plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(
+    data=df, 
+    x="Experience", 
+    y="Salary", 
+    hue="Role",    # Different colors for each role
+    style="Role",  # Different marker shapes for each role
+    s=100,         # Marker size
+    alpha=0.7      # Transparency
+)
+
+# 4. Add labels and title
+plt.title('Professional Growth: Salary vs. Experience', fontsize=16)
+plt.xlabel('Years of Experience', fontsize=12)
+plt.ylabel('Annual Salary ($)', fontsize=12)
+plt.legend(title='Job Role', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+plt.tight_layout()
+plt.show()
