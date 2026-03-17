@@ -1,0 +1,11 @@
+def or_perceptron(x1, x2):
+    w1, w2 = 1, 1
+    bias = -0.5
+    
+    summation = (x1 * w1) + (x2 * w2) + bias
+    
+    return 1 if summation >= 0 else 0
+
+print("OR Gate Truth Table:")
+for x in [(0,0), (0,1), (1,0), (1,1)]:
+    print(f"Input: {x} -> Output: {or_perceptron(*x)}")
