@@ -1,0 +1,9 @@
+import xgboost as xgb
+from sklearn.datasets import make_regression
+
+X, y = make_regression(n_samples=1000, n_features=10, noise=0.1, random_state=42)
+
+reg_model = xgb.XGBRegressor(n_estimators=100, learning_rate=0.05)
+reg_model.fit(X_train, y_train)
+
+print(f"XGBoost R2 Score: {reg_model.score(X_test, y_test):.2f}")
