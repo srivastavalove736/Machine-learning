@@ -1,0 +1,27 @@
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import make_regression
+from sklearn.metrics import mean_squared_error, r2_score
+
+# 1. Generate synthetic regression data
+X, y = make_regression(n_samples=1000, n_features=10, noise=0.1, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 2. Initialize the Random Forest Regressor
+# n_estimators: Number of trees in the forest (default is 100)
+# max_depth: Maximum depth of each tree
+# random_state: Ensures reproducible results
+rf_regressor = RandomForestRegressor(n_estimators=100, max_depth=10, random_state=42)
+
+# 3. Train the model
+rf_regressor.fit(X_train, y_train)
+
+# 4. Make predictions
+y_pred = rf_regressor.predict(X_test)
+
+# 5. Evaluate the model
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"Mean Squared Error: {mse:.2f}")
+print(f"R^2 Score: {r2:.2f}")
