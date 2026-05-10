@@ -1,0 +1,7 @@
+from sklearn.metrics import precision_score
+
+y_true = [0, 1, 1, 0, 1, 1]  # Actual values
+y_pred = [0, 1, 0, 0, 1, 1]  # Predicted values
+
+precision = precision_score(y_true, y_pred)
+print(f"Precision: {precision:.2f}")  # Output: 1.00
