@@ -1,0 +1,11 @@
+from sklearn.metrics import f1_score
+
+# Sample data: true labels and predicted labels
+y_true = [0, 1, 1, 0, 1, 1]
+y_pred = [0, 0, 1, 0, 0, 1]
+
+# Calculate F1 Score
+# Default is 'binary', which calculates for the positive class (1)
+score = f1_score(y_true, y_pred)
+
+print(f"F1 Score: {score:.4f}")
